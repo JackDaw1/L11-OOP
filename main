@@ -1,0 +1,91 @@
+import UIKit
+
+public class Worker {
+    
+    var name: String // internal по умолчанию
+    fileprivate var age: Int
+    private var salary: Int
+
+    init() {
+            salary = 100
+            name = "ivan"
+            age = 30
+        }
+    
+    init(name: String, age: Int, salary: Int) {
+            self.name = name
+            self.age = age
+            self.salary = salary
+            
+        }
+    
+    private func showSalary() {
+        print(salary)
+    }
+    
+    public func hello() {
+        print("Hello!")
+    }
+    
+    func premia(salary: Int)
+    {
+        print(salary)
+    }
+    
+    var info: String {
+            return "\(self.name)"
+        }
+    
+}
+
+internal class Programmer : Worker {
+    
+    var language: String
+    
+    init(name: String, age: Int, salary: Int, language: String){
+            self.language = language
+            super.init(name: name, age: age, salary: salary)
+        }
+    
+    override func hello() {
+        print("Hello, I'm Programmer!")
+    }
+    
+    override func premia(salary: Int)
+    {
+        print(salary*2)
+    }
+    
+    override var info: String {
+           return super.info + " - \(self.language)"
+       }
+    
+    func showLanguage(){
+        print(language)
+    }
+
+}
+
+class Manager : Worker {
+    
+    var project: String
+    
+    init(name: String, age: Int, salary: Int, project: String){
+            self.project = project
+            super.init(name: name, age: age, salary: salary)
+        }
+    
+    override func hello() {
+        print("Hello, I'm Manager!")
+    }
+    
+    override func premia(salary: Int)
+    {
+        print(salary*4)
+    }
+    
+    func showProject(){
+        print(project)
+    }
+}
+
